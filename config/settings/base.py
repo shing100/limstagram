@@ -41,7 +41,9 @@ USE_TZ = True
 DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///limstagram'),
 }
+DATABASES['default']['PASSWORD'] = "1624"
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+
 
 # URLS
 # ------------------------------------------------------------------------------
