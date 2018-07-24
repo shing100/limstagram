@@ -55,15 +55,42 @@ Cat.object.create(
 cat = Cat.objects.get(id=1)
 fluffy.name = "Mr. Fluffy"
 fluffy.save()
+
 ## 필터를 이용한 검색
 british_cats = Cat.objects.filter(breed="British")
+
 ## 필터 Lookups options = startwith, contains, istartswith, icontainsm, lt , gt, ...
 cats = Cat.objects.filter(name__startswith="Mr")
 cats = Cat.objects.all()
+
 # delete()
 fluffy = Cat.objects.get(id=1)
 fluffy.delete()
 
+# foreignKey 모델에 생성
+class Owner(models.Model):
+    name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    following = models.ManyToManyField('self')
+    followers = models.ManyToManyField('self')
+
+# 외래키 설정하기
+from . import Owner
+owner = models.ForeignKey(Owner, null=True)
+
+# 저장방법
+king = Owner.objects.create(name="king", last_name="lim", age=45)
+bunns = Cat.objects.get(id=2)
+bunns.owner = king
+bunns.save()
+
+# 데이터 접근방법
+bunns = Cat.objects.get(id=2)
+print(bunns.owner.age)
+
+king = Owner.objects.get(pk=1)
+king_cats = king.cat_set.all()
 ```
 
 > Class Ingeritance and Models and Fields
