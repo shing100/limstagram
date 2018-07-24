@@ -29,6 +29,9 @@ Clonning instagram with python django and react and react native
         limstagram 폴더 및에 이미지폴더 생성됨
      - 이후 base.py 에서 LOCAL_APPS 에 images 추가하기
 
+     python manage.py migrate
+     python manage.py makemigrations (생성한 모델, 어플레키에션 필드들을 변경시)
+
 ## 알아야 할것들
 > Django ORM
 >> create() , get(), filter(), delete()
@@ -55,6 +58,9 @@ british_cats = Cat.objects.filter(breed="British")
 ## 필터 Lookups options = startwith, contains, istartswith, icontainsm, lt , gt, ...
 cats = Cat.objects.filter(name__startswith="Mr")
 cats = Cat.objects.all()
+# delete()
+fluffy = Cat.objects.get(id=1)
+fluffy.delete()
 
 ```
 
