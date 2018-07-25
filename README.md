@@ -110,7 +110,12 @@ king_cats = king.cat_set.all()
 > Django Models
 
 - https://docs.djangoproject.com/en/1.11/topics/db/models/
-
+- https://docs.djangoproject.com/en/1.11/ref/models/options/
+ 
 > Django Admin
 
 - https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
+
+> __str__
+
+- https://docs.djangoproject.com/en/1.11/ref/models/instances/#other-model-instance-methods
