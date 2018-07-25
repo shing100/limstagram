@@ -4,6 +4,7 @@ Clonning instagram with python django and react and react native
 
 인스타그램 클론하기 ( 파이선 장고, 리액트, 리엑트 네이티브 )
 
+-----------------------------------------------------
 ## 사용 환경
     Visual Studio Code
     XCode
@@ -93,6 +94,9 @@ king = Owner.objects.get(pk=1)
 king_cats = king.cat_set.all()
 ```
 
+## 참고자료
+--------------------
+
 > Class Ingeritance and Models and Fields
 
 - https://docs.djangoproject.com/en/1.11/topics/db/models/
@@ -102,3 +106,11 @@ king_cats = king.cat_set.all()
 
 - https://docs.djangoproject.com/en/1.11/topics/db/models/#abstract-base-classes
 - https://docs.djangoproject.com/en/1.11/ref/models/fields/
+
+> Django Models
+
+- https://docs.djangoproject.com/en/1.11/topics/db/models/
+
+> Django Admin
+
+- https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
