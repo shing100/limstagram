@@ -13,7 +13,7 @@ class ImageAdmin(admin.ModelAdmin):
         'location',
         'caption',
     )
-
+    
     list_filter = (
         'location',
         'creator',
@@ -30,6 +30,16 @@ class ImageAdmin(admin.ModelAdmin):
 
 @admin.register(models.Like)
 class LikeAdmin(admin.ModelAdmin):
+
+    search_fields = (
+        'creator',
+        'image'
+    )
+
+    list_filter = (
+        'creator',
+        'image'
+    )
     
     list_display = (
         'creator',
@@ -41,6 +51,12 @@ class LikeAdmin(admin.ModelAdmin):
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
     
+    search_fields = (
+        'message',
+        'creator',
+        'image'
+    )
+
     list_display = (
         'message', 
         'creator',

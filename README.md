@@ -37,7 +37,7 @@ Clonning instagram with python django and react and react native
 
 ## 알아야 할것들
 > Django ORM
->> create() , get(), filter(), delete()
+>> create(), get(), filter(), delete()
 ```python
 from django.db import models
 # 모델 생성
@@ -119,3 +119,7 @@ king_cats = king.cat_set.all()
 > __str__
 
 - https://docs.djangoproject.com/en/1.11/ref/models/instances/#other-model-instance-methods
+
+> Basic RESTful API Design guidelines
+
+- https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
