@@ -125,3 +125,11 @@ king_cats = king.cat_set.all()
 - https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
 - https://www.django-rest-framework.org
 
+> Django Rest Framework Serializers
+
+- http://www.django-rest-framework.org/api-guide/serializers/
+
+> URL dispatcher
+
+- https://docs.djangoproject.com/en/1.11/topics/http/urls/
+- https://docs.djangoproject.com/en/2.0/ref/urls/#path
