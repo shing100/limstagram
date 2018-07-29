@@ -123,3 +123,5 @@ king_cats = king.cat_set.all()
 > Basic RESTful API Design guidelines
 
 - https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
+- https://www.django-rest-framework.org
+
