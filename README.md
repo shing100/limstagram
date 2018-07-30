@@ -94,6 +94,72 @@ king = Owner.objects.get(pk=1)
 king_cats = king.cat_set.all()
 ```
 
+## 기본적인 모델 생성방법
+```python
+class TimeStampedModel(models.Model):
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+class Image(TimeStampedModel):
+    
+    """ Image Model """
+    # 파일 위치, 파일 이름, 작성자
+    file = models.ImageField()
+    location = models.CharField(max_length=140)
+    caption = models.TextField()
+    creator = models.ForeignKey(user_models.User, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{} - {}'.format(self.location, self.caption)
+```
+
+## 기본적인 URL 연결 방법
+```python
+# config/urls.py
+path(
+    "images/",
+    include("limstagram.images.urls", namespace="images"),
+),
+
+# views.py
+class ListAllImages(APIView):
+
+    def get(self, request, format=None):
+        # 모든 이미지를 불러옴
+        all_images = models.Image.objects.all()
+        # 모든 이미지를 시리얼라이즈 (변환)
+        serializer = serializers.ImageSerializer(all_images, many=True)
+
+        return Response(data=serializer.data)
+
+# urls.py
+from django.urls import path
+from . import views
+
+app_name = "images"
+urlpatterns = [
+    path("all/", view=views.ListAllImages.as_view(), name="all_images"),
+]
+```
+
+## 주요기능
+- 유저 피드
+- 이미지 좋아요 수, 리스트 확인
+- 좋아요, 좋아요 해제
+- 이미지 댓글 확인
+- 팔로잉, 팔로워 리스트 확인
+- 해시태그 검색
+- 유저 검색
+- 팔로일, 팔로워
+- 알림 확인, 업데이트 확인
+- 프로파일 업데이트, 비밀번호 수정
+- 회원가입, 로그인, 페이스북 연동
+- 이미지 올리기, 삭제, 수정, 
+- 내 이미지 댓글, 생성 댓글 삭제
+
 ## 참고자료
 --------------------
 
@@ -128,6 +194,7 @@ king_cats = king.cat_set.all()
 > Django Rest Framework Serializers
 
 - http://www.django-rest-framework.org/api-guide/serializers/
+- http://www.django-rest-framework.org/api-guide/relations/#nested-relationships
 
 > URL dispatcher
 
