@@ -196,7 +196,17 @@ urlpatterns = [
 - http://www.django-rest-framework.org/api-guide/serializers/
 - http://www.django-rest-framework.org/api-guide/relations/#nested-relationships
 
+> Request and Response
+
+- https://docs.djangoproject.com/en/1.11/ref/request-response/#attributes-set-by-middleware
+- https://docs.djangoproject.com/en/1.11/ref/request-response/
+
 > URL dispatcher
 
 - https://docs.djangoproject.com/en/1.11/topics/http/urls/
 - https://docs.djangoproject.com/en/2.0/ref/urls/#path
+
+> Middleware
+
+- https://docs.djangoproject.com/en/1.11/topics/http/middleware/
+- https://www.agiliq.com/blog/2015/07/understanding-django-middlewares/
