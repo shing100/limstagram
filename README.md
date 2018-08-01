@@ -210,3 +210,7 @@ urlpatterns = [
 
 - https://docs.djangoproject.com/en/1.11/topics/http/middleware/
 - https://www.agiliq.com/blog/2015/07/understanding-django-middlewares/
+
+> python sort
+
+- https://www.pythoncentral.io/how-to-sort-a-list-tuple-or-object-with-sorted-in-python/
