@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from . import models
+from limstagram.users import models as user_models
 
 class CommentSerializer(serializers.ModelSerializer):
 
@@ -13,11 +14,21 @@ class LikeSerializer(serializers.ModelSerializer):
         model = models.Like
         fields = '__all__'
 
+class FeedUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = user_models.User
+        fields = (
+            'username',
+            'profile_image',
+        )
+
+
 class ImageSerializer(serializers.ModelSerializer):
 
     # 필드의 전체 내용을 불러옴
     comments = CommentSerializer(many=True)
-    likes = LikeSerializer(many=True)
+    creator = FeedUserSerializer()
 
     class Meta:
         model = models.Image
@@ -27,6 +38,7 @@ class ImageSerializer(serializers.ModelSerializer):
             'location',
             'caption',
             'comments',
-            'likes',
+            'like_count',
+            'creator'
         )
 

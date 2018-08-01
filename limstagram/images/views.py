@@ -2,32 +2,27 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from . import models, serializers
 
-class ListAllImages(APIView):
-
-    def get(self, request, format=None):
-        # 모든 이미지를 불러옴
-        all_images = models.Image.objects.all()
-        # 모든 이미지를 시리얼라이즈 (변환)
-        serializer = serializers.ImageSerializer(all_images, many=True)
-
-        return Response(data=serializer.data)
-
-class ListAllComments(APIView):
+class Feed(APIView):
 
     def get(self, request, format=None):
 
-        user_id = request.user.id
+        user = request.user
+        following_users = user.following.all()
 
-        all_comments = models.Comment.objects.filter(creator=user_id)
-        serializer = serializers.CommentSerializer(all_comments, many=True)
+        image_list = []
 
-        return Response(data=serializer.data)
+        for following_user in following_users:
+            user_images = following_user.images.all()
 
-class ListAllLikes(APIView):
+            for image in user_images:
+                image_list.append(image)
+        
+        ## sorted_list = sorted(image_list, key=get_key, reverse=True)
+        sorted_list = sorted(image_list, key=lambda image: image.created_at, reverse=True)
+        
+        serializer = serializers.ImageSerializer(sorted_list, many=True)
 
-    def get(self, request, format=None):
-
-        all_likes = models.Like.objects.all()
-        serializer = serializers.LikeSerializer(all_likes, many=True)
-
-        return Response(data=serializer.data)
+        return Response(serializer.data)
+##
+## def get_key(image):
+##    return image.created_at
