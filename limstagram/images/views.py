@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 from . import models, serializers
 
 class Feed(APIView):
@@ -29,11 +30,36 @@ class Feed(APIView):
 
 class LikeImage(APIView):
 
-    def get(self, request, image_id, format=None):
+    def post(self, request, image_id, format=None):
+
+        user = request.user
         # 해당 이미지가 없을 경우 404 페이지 예외처리
         try:
-            image = models.Image.objects.get(id=image_id)
-        except models.Image.DoseNotExists:
-            return Response(status=404)
+            found_image = models.Image.objects.get(id=image_id)
+        except models.Image.DoseNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        # 좋아요 구현
+        try:
+            preexisiting_like = models.Like.objects.get(
+                creator = user,
+                image = found_image
+            )
+            preexisiting_like.delete()
+            
+            # No Content
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
-        return Response(status=200)
+        except models.Like.DoseNotExist:
+            new_like = models.Like.objects.create(
+                creator = user,
+                image = found_image
+            )
+            new_like.save()
+            # 성공
+            return Response(status=status.HTTP_201_CREATED)
+
+class CommentOnImage(APIView):
+
+    def post(self, request, image_id, format=None):
+        
+        return Response(status = status.HTTP_200_OK)

@@ -200,6 +200,7 @@ urlpatterns = [
 
 - https://docs.djangoproject.com/en/1.11/ref/request-response/#attributes-set-by-middleware
 - https://docs.djangoproject.com/en/1.11/ref/request-response/
+- http://www.django-rest-framework.org/api-guide/requests/#data
 
 > URL dispatcher
 
@@ -219,4 +220,4 @@ urlpatterns = [
 > 정규표현식
 
 - https://regex101.com/
-- https://regex101.com/
+- https://suwoni-codelab.com/django/2018/03/24/Django-Url-function/
