@@ -2,17 +2,7 @@ from rest_framework import serializers
 from . import models
 from limstagram.users import models as user_models
 
-class CommentSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = models.Comment
-        fields = '__all__'
-
-class LikeSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Like
-        fields = '__all__'
 
 class FeedUserSerializer(serializers.ModelSerializer):
 
@@ -22,6 +12,25 @@ class FeedUserSerializer(serializers.ModelSerializer):
             'username',
             'profile_image',
         )
+
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    creator = FeedUserSerializer()
+
+    class Meta:
+        model = models.Comment
+        fields = (
+            'id',
+            'message',
+            'creator'
+        )
+
+class LikeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Like
+        fields = '__all__'
 
 
 class ImageSerializer(serializers.ModelSerializer):

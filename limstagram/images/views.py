@@ -26,3 +26,14 @@ class Feed(APIView):
 ##
 ## def get_key(image):
 ##    return image.created_at
+
+class LikeImage(APIView):
+
+    def get(self, request, image_id, format=None):
+        # 해당 이미지가 없을 경우 404 페이지 예외처리
+        try:
+            image = models.Image.objects.get(id=image_id)
+        except models.Image.DoseNotExists:
+            return Response(status=404)
+
+        return Response(status=200)

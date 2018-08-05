@@ -211,6 +211,12 @@ urlpatterns = [
 - https://docs.djangoproject.com/en/1.11/topics/http/middleware/
 - https://www.agiliq.com/blog/2015/07/understanding-django-middlewares/
 
-> python sort
+> python sort, lambda
 
 - https://www.pythoncentral.io/how-to-sort-a-list-tuple-or-object-with-sorted-in-python/
+- https://wikidocs.net/64
+
+> 정규표현식
+
+- https://regex101.com/
+- https://regex101.com/
