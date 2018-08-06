@@ -62,4 +62,5 @@ class CommentOnImage(APIView):
 
     def post(self, request, image_id, format=None):
         
+        serializer = serializers.CommentSerializer()
         return Response(status = status.HTTP_200_OK)

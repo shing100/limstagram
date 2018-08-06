@@ -1,3 +1,6 @@
 {
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "python.pythonPath": "/anaconda3/envs/limstagram/bin/python",
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "path-intellisense.extensionOnImport": true,
 }
