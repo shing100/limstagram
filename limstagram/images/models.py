@@ -10,7 +10,7 @@ class TimeStampedModel(models.Model):
         abstract = True
 
 class Image(TimeStampedModel):
-    
+
     """ Image Model """
     # 파일 위치, 파일 이름, 작성자
     file = models.ImageField()
@@ -27,10 +27,10 @@ class Image(TimeStampedModel):
 
     class Meta:
         ordering = ['-created_at']
-    
+
 
 class Comment(TimeStampedModel):
-    
+
     """ Comment Model """
     # 내용, 작성자, 이미지
     message = models.TextField()
@@ -39,7 +39,7 @@ class Comment(TimeStampedModel):
 
     def __str__(self):
         return self.message
-    
+
 
 class Like(TimeStampedModel):
 
@@ -50,4 +50,3 @@ class Like(TimeStampedModel):
 
     def __str__(self):
         return 'User: {} - Image Caption: {}'.format(self.creator.username, self.image.caption)
-    
