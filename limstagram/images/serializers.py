@@ -2,7 +2,15 @@ from rest_framework import serializers
 from . import models
 from limstagram.users import models as user_models
 
+class UserProfileImageSerializer(serializers.ModelSerializer):
 
+    class Meta:
+        model = models.Image
+        fields = (
+            'file',
+            'comment_count',
+            'like_count'
+        )
 
 class FeedUserSerializer(serializers.ModelSerializer):
 
