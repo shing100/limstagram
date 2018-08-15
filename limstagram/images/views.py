@@ -114,8 +114,16 @@ class Comment(APIView):
 
 class Search(APIView):
 
-    def get(self, request, comment_id, format=None):
+    def get(self, request, format=None):
 
         hashtags = request.query_params.get('hashtags', None)
 
-        print(hashtags)
+        if hashtags is not None:
+
+            hashtags = hashtags.split(",")
+            images = models.Image.objects.filter(tags__name__in=hashtags).distinct()
+
+            serializer = serializers.CountImageSerializer(images, many=True)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_204_NO_CONTENT)
