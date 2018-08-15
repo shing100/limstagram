@@ -241,3 +241,4 @@ SOCIALACCOUNT_ADAPTER = 'limstagram.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+TAGGIT_CASE_INSENSITIVE = True
