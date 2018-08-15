@@ -32,6 +32,7 @@ Clonning instagram with python django and react and react native
     
      python manage.py migrate
      python manage.py makemigrations (생성한 모델, 어플레키에션 필드들을 변경시)
+     python manage.py makemigrations && python manage.py migrate
      python manage.py createsuperuser (장고 슈퍼유저 생성)
 
 
@@ -221,3 +222,8 @@ urlpatterns = [
 
 - https://regex101.com/
 - https://suwoni-codelab.com/django/2018/03/24/Django-Url-function/
+
+> django-taggit
+
+- https://github.com/alex/django-taggit
+- https://django-taggit.readthedocs.io/en/latest/
