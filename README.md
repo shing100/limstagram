@@ -25,7 +25,9 @@ Clonning instagram with python django and react and react native
      pip install -r requirements/local.txt
      - 로컬 파일들을 인스톨함
      cd limstagram
+     각자의 앱을 만들기 위한 명령어
      django-admin startapp images
+     django-admin startapp notifications
      - 이미지를 업로드 , 사용 할수 있도록 앱을 만들어줌
         limstagram 폴더 및에 이미지폴더 생성됨
      - 이후 base.py 에서 LOCAL_APPS 에 images 추가하기
@@ -223,7 +225,11 @@ urlpatterns = [
 - https://regex101.com/
 - https://suwoni-codelab.com/django/2018/03/24/Django-Url-function/
 
-> django-taggit
+> django-taggit 해시태깅검색
 
 - https://github.com/alex/django-taggit
 - https://django-taggit.readthedocs.io/en/latest/
+
+> field-lookups
+
+- https://docs.djangoproject.com/en/1.11/topics/db/queries/#field-lookups

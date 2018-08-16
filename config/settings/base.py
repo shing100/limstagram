@@ -75,6 +75,7 @@ LOCAL_APPS = [
     'limstagram.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
     'limstagram.images.apps.ImagesConfig',
+    'limstagram.notifications.apps.NotificationsConfig'  # notifications apps
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -241,4 +242,5 @@ SOCIALACCOUNT_ADAPTER = 'limstagram.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# 해시태그 설정 django-taggit
 TAGGIT_CASE_INSENSITIVE = True

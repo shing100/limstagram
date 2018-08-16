@@ -112,6 +112,7 @@ class Comment(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
 
+# 해시태크 검색을 위한 서치 클랙스
 class Search(APIView):
 
     def get(self, request, format=None):

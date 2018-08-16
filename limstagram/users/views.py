@@ -88,3 +88,22 @@ class UserFollowing(APIView):
         serializer = serializers.UserProfileSerializer(user_following, many=True)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+# 유저명으로 검색하기 위한 클레스
+class Search(APIView):
+    def get(self, request, fromat=None):
+
+        username = request.query_params.get('username', None)
+
+        if username is not None:
+            #username__istartswith ~으로 시작하는것 검색
+            users = models.User.objects.filter(username__icontains=username)
+
+            serializer = serializers.ListUserSerializer(users, many=True)
+
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
