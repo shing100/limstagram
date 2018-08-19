@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from . import models
+from taggit_serializer.serializers import (TagListSerializerField,TaggitSerializer)
 from limstagram.users import models as user_models
 
 
@@ -52,12 +53,12 @@ class LikeSerializer(serializers.ModelSerializer):
         model = models.Like
         fields = '__all__'
 
-
 class ImageSerializer(serializers.ModelSerializer):
 
     # 필드의 전체 내용을 불러옴
     comments = CommentSerializer(many=True)
     creator = FeedUserSerializer()
+    tags = TagListSerializerField()
 
     class Meta:
         model = models.Image
@@ -68,7 +69,7 @@ class ImageSerializer(serializers.ModelSerializer):
             'caption',
             'comments',
             'like_count',
-            'creator'
+            'creator',
             'tags'
         )
 

@@ -229,6 +229,7 @@ urlpatterns = [
 
 - https://github.com/alex/django-taggit
 - https://django-taggit.readthedocs.io/en/latest/
+- https://github.com/glemmaPaul/django-taggit-serializer
 
 > field-lookups
 
