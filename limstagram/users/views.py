@@ -17,6 +17,8 @@ class FollowUser(APIView):
 
     def post(self, request, user_id, format=None):
 
+        # notifications
+
         user = request.user
 
         try:

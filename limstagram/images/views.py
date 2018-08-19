@@ -32,6 +32,8 @@ class LikeImage(APIView):
 
     def post(self, request, image_id, format=None):
 
+        # notification
+
         user = request.user
         # 해당 이미지가 없을 경우 404 페이지 예외처리
         try:
@@ -82,6 +84,8 @@ class unLikeImage(APIView):
 class CommentOnImage(APIView):
 
     def post(self, request, image_id, format=None):
+
+        ## notificarion
 
         user = request.user
         serializer = serializers.CommentSerializer(data=request.data)
