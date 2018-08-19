@@ -10,9 +10,9 @@ class SmallImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Image
-        fields = {
-            "file"
-        }
+        fields = (
+            "file",
+        )
 
 class CountImageSerializer(serializers.ModelSerializer):
 
