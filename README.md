@@ -234,3 +234,4 @@ urlpatterns = [
 > field-lookups
 
 - https://docs.djangoproject.com/en/1.11/topics/db/queries/#field-lookups
+- https://docs.djangoproject.com/en/1.11/ref/models/querysets/#values

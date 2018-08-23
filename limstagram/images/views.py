@@ -2,6 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . import models, serializers
+from limstagram.users import models as user_models
+from limstagram.users import serializers as user_serializers
 from limstagram.notifications import views as notification_views
 
 class Feed(APIView):
@@ -35,6 +37,20 @@ class Feed(APIView):
 ##    return image.created_at
 
 class LikeImage(APIView):
+
+    def get(self, request, image_id, format=None):
+        likes = models.Like.objects.filter(image__id=image_id)
+
+        # print(likes.values())
+        # print(likes.values('creator_id'))
+        ## arrat 안에 있는 user id 를 찾기
+
+        like_creators_ids = likes.values('creator_id')
+        users = user_models.User.objects.filter(id__in=like_creators_ids)
+
+        serializer = user_serializers.ListUserSerializer(users, many=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, image_id, format=None):
 
