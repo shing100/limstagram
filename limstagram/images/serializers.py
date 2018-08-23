@@ -74,3 +74,12 @@ class ImageSerializer(serializers.ModelSerializer):
             'tags'
         )
 
+class InputImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Image
+        field = (
+            'file',
+            'location',
+            'caption',
+        )

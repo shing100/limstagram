@@ -186,3 +186,21 @@ class ImageDetail(APIView):
         serializer = serializers.ImageSerializer(image)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, requset, image_id, format=None):
+
+        user = requset.user
+
+        try:
+            image = models.Image.objects.get(id=image_id, creator=user)
+        except models.Image.DoesNotExist:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        # partial 모든 정보를 입력하지 않아도 저장됨
+        serializer = serializer.InputImageSerializer(image, data=requset.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save(creator=user)
+            return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
+
+        else:
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
