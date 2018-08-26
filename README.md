@@ -97,6 +97,31 @@ king = Owner.objects.get(pk=1)
 king_cats = king.cat_set.all()
 ```
 
+## Setting up JWT
+    http://getblimp.github.io/django-rest-framework-jwt/    
+    
+    pip install djangorestframework-jwt
+    설치 후 settings.py 에 더하기 쿠키커터의 경우 base.py
+
+```python
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+# 그리고 url.py에 추가하여 사용
+from rest_framework_jwt.views import obtain_jwt_token
+url(r'^api-token-auth/', obtain_jwt_token),
+or
+path("api-token-auth", obtain_jwt_token),
+```
+
 ## 기본적인 모델 생성방법
 ```python
 class TimeStampedModel(models.Model):

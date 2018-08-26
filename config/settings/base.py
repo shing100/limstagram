@@ -245,3 +245,15 @@ SOCIALACCOUNT_ADAPTER = 'limstagram.users.adapters.SocialAccountAdapter'
 # ------------------------------------------------------------------------------
 # 해시태그 설정 django-taggit
 TAGGIT_CASE_INSENSITIVE = True
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
