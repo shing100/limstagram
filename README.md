@@ -240,3 +240,7 @@ urlpatterns = [
 > partial-updates
 
 - http://www.django-rest-framework.org/api-guide/serializers/#partial-updates
+
+> django.contrib.auth
+
+- https://docs.djangoproject.com/en/1.11/ref/contrib/auth/#django.contrib.auth.models.User.check_password

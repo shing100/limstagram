@@ -127,7 +127,7 @@ class UserFollowing(APIView):
 
 # 유저명으로 검색하기 위한 클레스
 class Search(APIView):
-    def get(self, request, fromat=None):
+    def get(self, request, format=None):
 
         username = request.query_params.get('username', None)
 
@@ -143,3 +143,37 @@ class Search(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+class ChangePassword(APIView):
+
+    def put(self, request, username, format=None):
+
+        user = request.user
+
+        if user.username == username:
+
+            current_password = request.data.get('current_password', None)
+
+            if current_password is not None:
+                # 현재 비밀번호가 맞는지 체크
+                passwords_match = user.check_password(current_password)
+
+                if passwords_match:
+                    new_password = request.data.get('new_password',None)
+
+                    if new_password is not None:
+                        user.set_password(new_password)
+                        user.save()
+
+                        return Response(status=statsu.HTTP_200_OK)
+
+                    else:
+                        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+                else:
+                    return Response(status=status.HTTP_400_BAD_REQUEST)
+
+            else:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
