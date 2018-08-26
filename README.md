@@ -198,6 +198,7 @@ urlpatterns = [
 
 - http://www.django-rest-framework.org/api-guide/serializers/
 - http://www.django-rest-framework.org/api-guide/relations/#nested-relationships
+- http://www.django-rest-framework.org/api-guide/fields/#readonlyfield
 
 > Request and Response
 
