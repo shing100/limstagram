@@ -269,3 +269,8 @@ urlpatterns = [
 > django.contrib.auth
 
 - https://docs.djangoproject.com/en/1.11/ref/contrib/auth/#django.contrib.auth.models.User.check_password
+
+> django-rest-auth
+
+- https://github.com/Tivix/django-rest-auth
+- https://django-rest-auth.readthedocs.io/en/latest/
