@@ -172,6 +172,13 @@ urlpatterns = [
     path("all/", view=views.ListAllImages.as_view(), name="all_images"),
 ]
 ```
+## django-rest-auth
+> https://django-rest-auth.readthedocs.io/en/latest/installation.html
+> https://django-rest-auth.readthedocs.io/en/latest/api_endpoints.html
+주요 url 
+- /rest-auth/login/ (POST)
+- /rest-auth/logout/ (POST)
+- /rest-auth/registration/ (POST)
 
 ## 주요기능
 - 유저 피드
