@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook', # Facebook login
     'rest_framework', # REST Framework
     'rest_framework.authtoken',
     'taggit', # Tags for the photos
@@ -241,7 +242,9 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_ADAPTER = 'limstagram.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = 'limstagram.users.adapters.SocialAccountAdapter'
-
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_EMAIL_REQUIRED = False
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 # Your stuff...
 # ------------------------------------------------------------------------------

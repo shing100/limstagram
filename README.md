@@ -180,6 +180,10 @@ urlpatterns = [
 - /rest-auth/logout/ (POST)
 - /rest-auth/registration/ (POST)
 
+## 페이스북 로그인 기능
+- https://developers.facebook.com/
+- https://developers.facebook.com/tools/accesstoken/
+
 ## 주요기능
 - 유저 피드
 - 이미지 좋아요 수, 리스트 확인
