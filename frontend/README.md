@@ -1,8 +1,6 @@
 # REACT FRONTEND LIMSTAGRAM (리엑트 프론트엔드 for Limstagram)
 
 
-
-
 ## 참고자료
 
 > create-react-app
