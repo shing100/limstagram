@@ -45,8 +45,7 @@ const cssFilename = 'static/css/[name].[contenthash:8].css';
 const extractTextPluginOptions = shouldUseRelativeAssetPaths ? // Making sure that the publicPath goes back to to build folder.
   {
     publicPath: Array(cssFilename.split('/').length).join('../')
-  } :
-  {};
+  } : {};
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -166,7 +165,7 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test: /\.(css|scss)$/,
             loader: ExtractTextPlugin.extract(
               Object.assign({
                   fallback: {
@@ -201,8 +200,15 @@ module.exports = {
                             flexbox: 'no-2009',
                           }),
                         ],
+                        sourceMap: true
                       },
                     },
+                    {
+                      loader: require.resolve("sass-loader"),
+                      options: {
+                        sourceMap: true
+                      }
+                    }
                   ],
                 },
                 extractTextPluginOptions
