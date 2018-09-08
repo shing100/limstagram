@@ -16,3 +16,7 @@
 > eject
 
 - https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject
+
+> CSS 모듈의 필요성
+
+- https://css-tricks.com/css-modules-part-1-need/
