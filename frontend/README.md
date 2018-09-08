@@ -1,4 +1,6 @@
-# REACT FRONTEND LIMSTAGRAM (리엑트 프론트엔드 for Limstagram)
+# REACT FRONTEND LIMSTAGRAM 
+
+리엑트 프론트엔드 for Limstagram
 
 ## scss 추가하기
 
@@ -6,6 +8,17 @@
 - webpack.config.dev, pord 파일 수정
 - 해당 로더는 아래에서부터 읽기 시작함
 - 프로덕션은 모듈 형태가 아니고 플러그인 안에 있음 그래서 자바스크립트 그리고 css 파일을 생성함
+
+## 백엔드 프론트엔드 연결
+1) 프록시 요청 3000 에서 8000 포트로
+2) django-cors-headers 설치
+3) base.py 에 intsalled_app 에 corsheaders 추가
+4) corsheaders.middleware.CorsMiddleware 추가 CommonMiddleware 전에
+5) CORS_ORIGIN_ALLOW_ALL = True 세팅 추가
+6) str(ROOT_DIR.path('frontend', 'build', 'static')) static files 에 추가
+7) vies.py limstagram 폴더에 추가
+8) ReactAppView 읽는 파일 추가
+9) ReactAppView 에 URL 추가하기
 
 ## 참고자료
 
