@@ -35,3 +35,8 @@
 - https://css-tricks.com/css-modules-part-1-need/
 
 > Redux Store with Multiple Reducers
+
+> yarn add redux-thunk
+
+- 원할때 리덕스 스토어로 액션을 보낼 수 있게 해줌
+- 액션 -> 변경 (API)
