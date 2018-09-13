@@ -7,6 +7,7 @@ import 'index.css';
 import App from 'App';
 
 //console.log(store.getState());
+store.dispatch({type: "GREATE"})
 
 ReactDOM.render(
     <Provider store={store}>
