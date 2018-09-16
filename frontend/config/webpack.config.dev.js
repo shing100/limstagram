@@ -189,7 +189,7 @@ module.exports = {
                 },
               },
               {
-                loader: require.resolve('sass-loader'),
+                loader: require.resolve('sass-loader'), // sass 추가
                 options: {
                   sourcemap: true
                 }
