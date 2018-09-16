@@ -44,3 +44,8 @@
 
 - 원할때 리덕스 스토어로 액션을 보낼 수 있게 해줌
 - 액션 -> 변경 (API)
+
+> Reactotron
+- yarn add reactotron-react-js
+- yarn add reactotron-redux
+- https://github.com/infinitered/reactotron
