@@ -20,6 +20,10 @@
 8) ReactAppView 읽는 파일 추가
 9) ReactAppView 에 URL 추가하기
 
+## yarn add react-router-dom history 
+- yarn add react-router-redux@next
+- history 를 볼 수 있음
+
 ## 참고자료
 
 > create-react-app
