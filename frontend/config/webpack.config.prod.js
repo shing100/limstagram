@@ -182,6 +182,7 @@ module.exports = {
                         module: true,
                         localIdentName: "[path][name]__[local]--[hash:base64:5]",
                         sourceMap: shouldUseSourceMap,
+                        camelCase: "dashes"
                       },
                     },
                     {
@@ -208,7 +209,8 @@ module.exports = {
                     {
                       loader: require.resolve("sass-loader"), // sass 추가
                       options: {
-                        sourceMap: true
+                        sourceMap: true,
+                        data: `@import "${paths.appSrc}/config/_variables.scss";`
                       }
                     }
                   ],

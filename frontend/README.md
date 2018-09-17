@@ -56,3 +56,6 @@
 
 > internationalization
 - yarn add redux-i18n
+
+> reset-css
+- yarn add reset-css
