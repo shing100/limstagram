@@ -24,6 +24,10 @@
 - yarn add react-router-redux@next
 - history 를 볼 수 있음
 
+## React Component Patterns
+
+- https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82
+
 ## 참고자료
 
 > create-react-app
@@ -59,3 +63,4 @@
 
 > reset-css
 - yarn add reset-css
+
