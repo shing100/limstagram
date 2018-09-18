@@ -1,0 +1,42 @@
+.auth {
+  width: 100%;
+  max-width: $max-page-width;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  margin-top: 100px;
+  .column {
+    width: 45%;
+    &:last-child {
+      width: 40%;
+      margin-left: 10px;
+    }
+    .white-box {
+      text-align: center;
+      padding: 15px;
+      @include boxBorder(no);
+      margin-top: 10px;
+    }
+    .app-box {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        margin-top: 35px;
+        span {
+          text-align: center;
+        }
+        .appstores {
+          text-align: center;
+          padding: 15px;
+          img {
+            height: 47px;
+            &:first-child {
+              margin-right: 10px;
+            }
+          }
+      }
+    }
+  }
+}
