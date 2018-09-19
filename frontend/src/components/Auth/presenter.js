@@ -15,14 +15,14 @@ const Auth = (props, context) => (
             </div>
             <div className={styles.whiteBox}>
                 {props.action === "login" && (
-                    <p>
+                    <p className={styles.text}>
                         아이디가 없으세요? {" "}
                         <span className={styles.changeLink} onClick={props.changeAction}>
-                            회원가입
+                            가입하기
                         </span>
                     </p>)}
                 {props.action === "signup" && (
-                    <p>
+                    <p className={styles.text}>
                         아이디가 있으신가요? {" "}
                         <span className={styles.changeLink} onClick={props.changeAction}>
                             로그인

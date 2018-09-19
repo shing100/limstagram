@@ -64,3 +64,7 @@
 > reset-css
 - yarn add reset-css
 
+> ion icons
+
+- yarn add react-ionicons
+- zamarrowski.github.io/react-ionicons

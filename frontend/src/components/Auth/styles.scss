@@ -1,7 +1,7 @@
 .auth {
   width: 100%;
   max-width: $max-page-width;
-  margin: 150px auto;
+  margin: 100px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +20,18 @@
       .change-link {
         color: $light-blue;
         cursor: pointer;
+      }
+      .text {
+        margin: 15px;
+      }
+    }
+    .form-box {
+      margin-bottom: 20px;
+      padding: 0 40px;
+      padding-top: 30px;
+      img {
+        height: 80px;
+        margin-bottom: 15px;
       }
     }
     .app-box {
