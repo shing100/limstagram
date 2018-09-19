@@ -3,7 +3,7 @@ import Auth from "./presenter";
 
 class Container extends Component {
     state = {
-        actions: "login"
+        action: "login"
     };
     render() {
         const { action } = this.state;

@@ -1,12 +1,11 @@
 .auth {
   width: 100%;
   max-width: $max-page-width;
-  margin: 0 auto;
+  margin: 150px auto;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  margin-top: 100px;
   .column {
     width: 45%;
     &:last-child {
@@ -18,6 +17,10 @@
       padding: 15px;
       @include boxBorder(no);
       margin-top: 10px;
+      .change-link {
+        color: $light-blue;
+        cursor: pointer;
+      }
     }
     .app-box {
         display: flex;

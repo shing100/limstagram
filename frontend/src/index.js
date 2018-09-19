@@ -16,7 +16,7 @@ store.dispatch({type: "GREATE"})
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <I18n translations={translations} initialLang="en" fallbackLang="en">
+            <I18n translations={translations} initialLang="ko" fallbackLang="en">
                 <App />
             </I18n>
         </ConnectedRouter>
