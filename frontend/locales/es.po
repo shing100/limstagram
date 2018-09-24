@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Language: en"
+
+#: src/components/AuthForms/index.js
+msgid "아이디"
+msgstr "username"
+
+#: src/components/AuthForms/index.js
+msgid "비밀번호"
+msgstr "password"
+
+#: src/components/AuthForms/index.js
+msgid "로그인"
+msgstr "Login"
+
+#: src/components/AuthForms/index.js
+msgid "또는"
+msgstr "or"
+
+#: src/components/AuthForms/index.js
+msgid "페이스북으로 로그인하기"
+msgstr "Login with Facebook"
+
+#: src/components/AuthForms/index.js
+msgid "비밀번호를 잊어버렸나요?"
+msgstr "forgot password?"
+
+#: src/components/AuthForms/index.js
+msgid "이메일"
+msgstr "Email"
+
+#: src/components/AuthForms/index.js
+msgid "이름"
+msgstr "name"
+
+#: src/components/AuthForms/index.js
+msgid "회원가입"
+msgstr "join us"
+
+#: src/components/Footer/index.js
+msgid "Iimstagram 정보"
+msgstr "About Us"
+
+#: src/components/Footer/index.js
+msgid "지원"
+msgstr "Support"
+
+#: src/components/Footer/index.js
+msgid "홍보 센터"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "API"
+msgstr "API"
+
+#: src/components/Footer/index.js
+msgid "채용 정보"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "개인정보처리방침"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "약관"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "디렉터리"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "프로필"
+msgstr "Profile"
+
+#: src/components/Footer/index.js
+msgid "해시태그"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "언어"
+msgstr "Language"
