@@ -29,7 +29,28 @@ const facebookLogin = (access_token) => {
         .then(response => response.json())
         .then(json => {
             if(json.token){
-                localStorage.setItem("jwt",json.token);
+                dispatch(saveToken(json.token));
+            }
+        })
+        .catch(err => console.log(err))
+    }
+}
+
+const usernameLogin = (username, password) => {
+    return (dispatch) => {
+        fetch("/rest-auth/login/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        })
+        .then(response => response.json())
+        .then(json => {
+            if(json.token) {
                 dispatch(saveToken(json.token));
             }
         })
@@ -58,6 +79,7 @@ const reducer = (state = initialState, action) => {
 
 const applySetToken = (state, action) => {
     const { token } = action;
+    localStorage.setItem("jwt", token);
     return {
         ...state,
         isLoggedIn:true,
@@ -68,7 +90,8 @@ const applySetToken = (state, action) => {
 // exports
 
 const actionCreators = {
-    facebookLogin
+    facebookLogin,
+    usernameLogin
 }
 
 export { actionCreators };
