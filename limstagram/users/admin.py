@@ -14,7 +14,7 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserCreationForm
     fieldsets = (
         ("User", {
-            "fields": ("name","followers","following","profile_image","bio","website")}),
+            "fields": ("name","followers","following","profile_image","bio","website","gender")}),
                 ) + auth_admin.UserAdmin.fieldsets
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
