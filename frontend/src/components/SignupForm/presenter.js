@@ -1,11 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Ionicon from "react-ionicons";
+import FacebookLogin from "react-facebook-login";
 import formStyles from "shared/formStyles.scss";
 
 const SignupForm = (props, context) => (
     <div className={formStyles.formComponent}>
-        <button className={formStyles.button}>{" "}<Ionicon icon="logo-facebook" fontSize="20px" color="white"/>{context.t("페이스북으로 로그인하기")}</button>
+        <FacebookLogin
+            appId="2194227644122487"
+            autoLoad={false}
+            fields="name,email,picture"
+            cssClass = {formStyles.button}
+            icon = "fa-facebook-official"
+            textButton={context.t("Facebook으로 로그인")}
+            callback={props.handleFacebookLogin}
+        />
         <span className={formStyles.divider}>{context.t("또는")}</span>
         <form className={formStyles.form} onSubmit={props.handleSubmit}>
             <input type="email" placeholder={context.t("이메일")} className={formStyles.textInput}  value={props.emailValue} onChange={props.handleInputChange} name="email"/>
@@ -24,7 +32,8 @@ SignupForm.propTypes = {
     usernameValue: PropTypes.string.isRequired,
     passwordValue: PropTypes.string.isRequired,
     handleInputChange: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired,
+    handleFacebookLogin: PropTypes.func.isRequired
 }
 
 SignupForm.contextTypes = {
