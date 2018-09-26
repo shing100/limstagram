@@ -73,3 +73,7 @@
 - "extract": "i18n_extract",
 - "import": "i18n_import --encoding=utf-8"
 - yarn run import
+
+> 페이스북 로그인
+ 
+- https://github.com/keppelen/react-facebook-login

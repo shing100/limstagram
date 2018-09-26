@@ -5759,6 +5759,10 @@ react-error-overlay@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
 
+react-facebook-login@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-facebook-login/-/react-facebook-login-4.1.0.tgz#44492e60a17dc337438bc971b7ee04b96965b6e4"
+
 react-ionicons@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/react-ionicons/-/react-ionicons-2.1.6.tgz#c9c472c242f41f228a6261fd6ce156d54e0e7677"
