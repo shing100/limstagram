@@ -3,7 +3,7 @@ import Feed from "./presenter";
 
 class Container extends Component {
     state = {
-        lodding: true
+        loading: true
     }
     render() {
         return <Feed {...this.state}/>
