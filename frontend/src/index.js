@@ -11,15 +11,15 @@ import {translations} from "translations";
 //import "ReactotronConfig";
 
 //console.log(store.getState());
-store.dispatch({type: "GREATE"})
+//store.dispatch({type: "GREATE"})
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <I18n translations={translations} initialLang="ko" fallbackLang="ko">
+        <I18n translations={translations} initialLang="ko" fallbackLang="ko">
+            <ConnectedRouter history={history}>
                 <App />
-            </I18n>
-        </ConnectedRouter>
+            </ConnectedRouter>
+        </I18n>
     </Provider>
     , document.getElementById('root')
 );
