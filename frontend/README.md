@@ -28,6 +28,29 @@
 
 - https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82
 
+
+## redux 
+
+```javascript
+// imports
+
+// actions
+
+// action creators
+
+// API actions
+
+// intiial state
+
+// reducer
+
+// reducer functions
+
+// exports
+
+// reducer export
+```
+
 ## 참고자료
 
 > create-react-app
