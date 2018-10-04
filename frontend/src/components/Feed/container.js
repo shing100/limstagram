@@ -8,14 +8,33 @@ class Container extends Component {
     };
 
     static porpTypes = {
-        getFeed: PropTypes.func.isRequired
+        getFeed: PropTypes.func.isRequired,
+        feed: PropTypes.array
     }
+
+    // feed 를 받음
+    componentWillReceiveProps = nextProps => {
+        if(nextProps.feed) {
+            this.setState({
+                loading: false,
+                feed: nextProps.feed
+            })
+        }
+    }
+
     componentDidMount() {
         const { getFeed } = this.props;
-        getFeed();
+        if(!this.props.feed) {
+            getFeed();
+        } else {
+            this.setState({
+                loading: false,
+            })
+        }
     }
     render() {
-        return <Feed {...this.state}/>
+        const { feed } = this.props;
+        return <Feed {...this.state} feed={feed}/>
     }
 }
 

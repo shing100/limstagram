@@ -9,6 +9,8 @@ class Container extends Component {
         const { action } = this.state;
         return <Auth action={action} changeAction={this._changeAction}/>;
     }
+
+    // 로그인 action
     _changeAction = () => {
         this.setState(prevState => {
             const { action } = prevState;
