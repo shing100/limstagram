@@ -1,6 +1,7 @@
 from django.db import models
 from limstagram.users import models as user_models
 from taggit.managers import TaggableManager
+from django.contrib.humanize.templatetags.humanize import naturaltime
 
 # Create your models here.
 class TimeStampedModel(models.Model):
@@ -23,6 +24,10 @@ class Image(TimeStampedModel):
     @property
     def like_count(self):
         return self.likes.all().count()
+
+    @property
+    def natural_time(self):
+        return naturaltime(self.created_at)
 
     @property
     def comment_count(self):
