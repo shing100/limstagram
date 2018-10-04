@@ -4,6 +4,7 @@ import styles from "./styles.scss";
 import PhotoActions from "components/PhotoActions";
 import PhotoComments from "components/PhotoComments";
 import TimeStamp from "components/TimeStamp";
+import CommentsBox from "components/CommentsBox";
 
 const FeedPhoto = (props, context) => {
     console.log(props)
@@ -24,6 +25,7 @@ const FeedPhoto = (props, context) => {
           <PhotoActions number={props.like_count}/>
           <PhotoComments caption={props.caption} creator={props.creator.username} comments={props.comments}/>
           <TimeStamp time={props.natural_time}/>
+          <CommentsBox/>
       </div>
     </div>
   );
