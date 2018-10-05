@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Textarea from "react-textarea-autosize";
 import styles from "./styles.scss";
 
 const CommentsBox = (props, context) => (
     <form className={styles.commentBox}>
-        <textarea className={styles.input} placeholder={context.t("댓글 달기...")}/>
+        <Textarea className={styles.input} placeholder={context.t("댓글 달기...")}/>
     </form>
 )
 
