@@ -1,6 +1,9 @@
 .navigation {
   width: 100%;
   @include boxBorder(no);
+  position: fixed;
+  top: 0px;
+  left: 0px;
   display: flex;
   justify-content: center;
   margin-bottom: 60px;

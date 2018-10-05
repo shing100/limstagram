@@ -98,5 +98,7 @@
 - yarn run import
 
 > 페이스북 로그인
- 
 - https://github.com/keppelen/react-facebook-login
+
+> 텍스트 리사이즈
+- yarn add react-textarea-autosize

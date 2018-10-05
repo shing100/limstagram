@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles.scss";
 
-const TimeStamp = props => props.time
+const TimeStamp = props => (
+    <div className={styles.time}>{props.time}</div>
+);
 
 TimeStamp.propTypes = {
     time: PropTypes.string.isRequired
