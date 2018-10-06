@@ -10,7 +10,7 @@ const CommentBox = (props, context) => (
             placeholder={context.t("댓글 달기...")}
             onChange={props.handleInputChange}
             onKeyPress={props.handleKeyPress}
-            value={props.value}
+            value={props.comment}
         />
     </form>
 )

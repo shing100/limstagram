@@ -7,6 +7,7 @@ const SET_FEED = "SET_FEED";
 const LIKE_PHOTO = "LIKE_PHOTO";
 const UNLIKE_PHOTO = "UNLIKE_PHOTO";
 const ADD_COMMENT = "ADD_COMMENT";
+const DELETE_COMMENT = "DELETE_COMMENT";
 
 // action creators
 
@@ -38,6 +39,15 @@ const addCommnet = (photoId, comment) => {
         comment
     }
 }
+
+const removeComment = (photoId, messageId) => {
+    return {
+        type: DELETE_COMMENT,
+        photoId,
+        messageId
+    };
+}
+
 
 // API actions
 
@@ -129,6 +139,7 @@ const commentPhoto = (photoId, message) => {
     }
 }
 
+
 // intiial state
 
 const intialState = {}
@@ -145,6 +156,8 @@ const reducer = (state = intialState, action) => {
             return applyUnlikePhoto(state, action);
         case ADD_COMMENT:
             return applyAddComment(state, action);
+        case DELETE_COMMENT:
+            return applyRemoveComment(state, action);
         default:
             return state;
     }
@@ -189,6 +202,22 @@ const applyAddComment = (state, action) => {
     const { feed } = state;
     const updatedFeed = feed.map(photo => {
             if(photo.id === photoId) {
+                return {
+                    ...photo,
+                    comments: [...photo.comments, comment]
+                };
+            }
+            return photo;
+        });
+    return {...state, feed: updatedFeed};
+}
+
+// 댓글 제거 추가 수정 필요
+const applyRemoveComment = (state, action) => {
+    const { photoId, comment } = action;
+    const { feed } = state;
+     const updatedFeed = feed.map(photo => {
+            if (photo.id === photoId) {
                 return {
                     ...photo,
                     comments: [...photo.comments, comment]

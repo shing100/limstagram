@@ -17,8 +17,8 @@ const PhotoActions = (props, context) => (
                 <Ionicon icon="ios-text-outline" fontSize="24px" color="black"/>
             </span>
         </div>
-
-        <span className={styles.likes}>{props.number === 1 ? context.t("좋아요") : context.t("좋아요")}{" "}{props.number}{context.t("개")}</span>
+        {console.log(props)}
+        <span className={styles.likes}>{props.number === 0 ? context.t("좋아요를 눌러주세요") : context.t(`좋아요 ${props.number}개`)}</span>
     </div>
 );
 
