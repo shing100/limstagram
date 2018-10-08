@@ -40,13 +40,13 @@ const addCommnet = (photoId, comment) => {
     }
 }
 
-const removeComment = (photoId, messageId) => {
-    return {
-        type: DELETE_COMMENT,
-        photoId,
-        messageId
-    };
-}
+// const removeComment = (photoId, messageId) => {
+//     return {
+//         type: DELETE_COMMENT,
+//         photoId,
+//         messageId
+//     };
+// }
 
 
 // API actions
