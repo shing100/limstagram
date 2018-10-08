@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  .column {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    .user {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      .username {
+        font-weight: 600;
+      }
+      .name {
+        font-size: $small-font-size;
+        font-weight: 100;
+      }
+    }
+    .bigAvatar {
+      width: 55px;
+      border-radius: 50%;
+    }
+    .avatar {
+      width: 30px;
+      border-radius: 50%;
+    }
+    .button {
+      @include blueButton();
+    }
+  }
+}
