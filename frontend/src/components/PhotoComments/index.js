@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Ionicon from "react-ionicons";
 import styles from "./styles.scss";
 
 const PhotoComments = props => (
@@ -16,7 +17,11 @@ const PhotoComments = props => (
 const Comment = props => (
     <li className={styles.comment}>
         <span className={styles.username}>{props.username}</span>
-        <span className={styles.message}>{props.comment}</span>
+        <span className={styles.message}>{props.comment}
+                {props.username === localStorage.getItem('username') ? (
+                <Ionicon className={styles.icon} icon="ios-close" fontSize="14px" color="black" />
+                ) : ( null )
+        }</span>
     </li>
 );
 

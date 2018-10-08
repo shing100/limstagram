@@ -3,6 +3,7 @@
 // actions
 
 const SAVE_TOKEN = "SAVE_TOKEN";
+const SAVE_USERNAME = "SAVE_USERNAME";
 const LOGOUT = "LOGOUT";
 
 // action creators
@@ -11,6 +12,13 @@ const saveToken = (token) => {
     return {
         type: SAVE_TOKEN,
         token
+    }
+}
+
+const saveUsername = (username) => {
+    return {
+        type: SAVE_USERNAME,
+        username
     }
 }
 
@@ -35,8 +43,10 @@ const facebookLogin = (access_token) => {
         })
         .then(response => response.json())
         .then(json => {
+            console.log(json);
             if(json.token){
                 dispatch(saveToken(json.token));
+                dispatch(saveUsername(json.user.username))
             }
         })
         .catch(err => console.log(err))
@@ -59,6 +69,7 @@ const usernameLogin = (username, password) => {
         .then(json => {
             if(json.token) {
                 dispatch(saveToken(json.token));
+                dispatch(saveUsername(username));
             }
         })
         .catch(err => console.log(err))
@@ -84,6 +95,7 @@ const createAccount = (username, password, email, name) => {
         .then(json => {
             if(json.token) {
                 dispatch(saveToken(json.token));
+                dispatch(saveUsername(username));
             }
         })
         .catch(err => console.log(err))
@@ -94,7 +106,8 @@ const createAccount = (username, password, email, name) => {
 
 const initialState = {
     isLoggedIn: localStorage.getItem('jwt') ? true : false,
-    token: localStorage.getItem('jwt')
+    token: localStorage.getItem('jwt'),
+    username: localStorage.getItem('username')
 }
 
 // reducer
@@ -103,6 +116,8 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case SAVE_TOKEN:
             return applySetToken(state, action);
+        case SAVE_USERNAME:
+            return applySetUsername(state, action);
         case LOGOUT:
             return applyLogout(state, action);
         default:
@@ -113,9 +128,19 @@ const reducer = (state = initialState, action) => {
 // reducer functions
 
 const applyLogout = (state, action) => {
+    localStorage.removeItem("username");
     localStorage.removeItem("jwt");
     return {
         isLoggedIn: false
+    }
+}
+
+const applySetUsername = (state, action) => {
+    const { username } = action;
+    localStorage.setItem("username", username);
+    return {
+        ...state,
+        username
     }
 }
 
