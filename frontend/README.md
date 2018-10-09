@@ -51,6 +51,11 @@
 // reducer export
 ```
 
+## push
+    mport {withRouter} from "react-router-dom";
+    을 import 하고 난 다음 마지막에 
+    export default ()(withRouter(Navigation));
+
 ## 참고자료
 
 > create-react-app

@@ -8,6 +8,7 @@ import Navigation from "components/Navigation";
 import Feed from "components/Feed";
 import Explore from "components/Explore";
 
+
 const App = props => [
   props.isLoggedIn ? <Navigation key={1}/> : null,
   props.isLoggedIn ? <PrivateRoutes key={2} /> : <PublicRoutes key={2} />,
@@ -22,6 +23,7 @@ const PrivateRoutes = props => (
   <Switch>
     <Route exact path="/" component={Feed} />
     <Route exact path="/explore" component={Explore} />
+    <Route exact path="/search/:searchTerm" render={() => "search"} />
   </Switch>
 )
 

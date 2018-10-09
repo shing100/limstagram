@@ -7,4 +7,7 @@
   max-width: $max-card-width;
   margin: 100px auto;
   align-items: center;
+  @include breakpoint("phone") {
+    background-color: transparent;
+  }
 }
