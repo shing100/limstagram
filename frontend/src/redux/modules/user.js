@@ -6,6 +6,8 @@ const SAVE_TOKEN = "SAVE_TOKEN";
 const SAVE_USERNAME = "SAVE_USERNAME";
 const SET_USER_LIST = "SET_USER_LIST";
 const LOGOUT = "LOGOUT";
+const FOLLOW_USER = "FOLLOW_USER";
+const UNFOLLOW_USER = "UNFOLLOW_USER";
 
 // action creators
 
@@ -36,6 +38,20 @@ const logout = () => {
     }
 }
 
+const setFollowUser = (userId) => {
+    return {
+        type: FOLLOW_USER,
+        userId
+    }
+}
+
+const setUnfollowUser = (userId) => {
+    return {
+        type: UNFOLLOW_USER,
+        userId
+    }
+}
+
 // API actions
 
 const facebookLogin = (access_token) => {
@@ -51,7 +67,7 @@ const facebookLogin = (access_token) => {
         })
         .then(response => response.json())
         .then(json => {
-            console.log(json);
+            //console.log(json);
             if(json.token){
                 dispatch(saveToken(json.token));
                 dispatch(saveUsername(json.user.username))
@@ -131,6 +147,18 @@ const getPhotoLikes = (photoId) => {
     };
 }
 
+const followUser = (userId) => {
+    return (dispatch, getState) => {
+        dispatch(setFollowUser(userId))
+    }
+}
+
+const unfollowUser = (userId) => {
+    return (dispatch, getState) => {
+        dispatch(setUnfollowUser(userId))
+    }
+}
+
 // intiial state
 
 const initialState = {
@@ -151,6 +179,10 @@ const reducer = (state = initialState, action) => {
             return applySetUserList(state, action);
         case LOGOUT:
             return applyLogout(state, action);
+        case FOLLOW_USER:
+            return applyFollowUser(state, action);
+        case UNFOLLOW_USER:
+            return applyUnfollowUser(state, action);
         default:
             return state;
     }
@@ -193,6 +225,30 @@ const applySetToken = (state, action) => {
     }
 }
 
+const applyFollowUser = (state, action) => {
+    const { userId } = action;
+    const { userList } = state;
+    const updateUserList = userList.map(user => {
+        if(user.id === userId){
+            return { ...user, following: true }
+        }
+        return user;
+    })
+    return {...state, userList: updateUserList}
+}
+
+const applyUnfollowUser = (state, action) => {
+    const { userId } = action;
+    const { userList } = state;
+    const updateUserList = userList.map(user => {
+        if(user.id === userId){
+            return { ...user, following: false }
+        }
+        return user;
+    })
+    return {...state, userList: updateUserList}
+}
+
 // exports
 
 const actionCreators = {
@@ -200,7 +256,9 @@ const actionCreators = {
     usernameLogin,
     createAccount,
     logout,
-    getPhotoLikes
+    getPhotoLikes,
+    followUser,
+    unfollowUser
 }
 
 export { actionCreators };
