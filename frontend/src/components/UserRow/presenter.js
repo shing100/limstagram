@@ -17,7 +17,7 @@ const UserRow = (props, context) => (
     </div>
     <span className={styles.column}>
         <button className={styles.button} onClick={props.handleClick}>
-            {props.user.following ? context.t("unFollow") : context.t("Follow")}
+            {props.user.following ? context.t("언팔로우") : context.t("팔로우")}
         </button>
     </span>
   </div>
