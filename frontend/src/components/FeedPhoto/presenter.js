@@ -8,7 +8,7 @@ import CommentBox from "components/CommentBox";
 import UserList from "components/UserList";
 
 const FeedPhoto = (props, context) => {
-    console.log(props)
+    //console.log(props)
     return (
     <div className={styles.feedPhoto}>
       <header className={styles.header}>

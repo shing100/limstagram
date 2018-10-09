@@ -19,7 +19,8 @@ class Images(APIView):
             user_images = following_user.images.all()
 
             for image in user_images:
-                image_list.append(image)
+                if following_user != request.user:
+                    image_list.append(image)
 
         my_images = user.images.all()[:2]
 
