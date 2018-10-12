@@ -24,13 +24,7 @@ class Container extends Component {
 
     componentDidMount() {
         const { getExplore } = this.props;
-        if(!this.props.userList) {
-            getExplore();
-        } else {
-            this.setState({
-                loading: false,
-            })
-        }
+        getExplore()
     }
     render() {
         const { userList } = this.props;

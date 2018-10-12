@@ -1,0 +1,32 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $max-page-width;
+  margin: 0 auto;
+  margin-top: 130px;
+  margin-bottom: 0;
+  align-items: center;
+  .section {
+    width: 100%;
+    margin-bottom: 80px;
+    .title {
+      text-align: left;
+      color: $dark-grey;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .content {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .not-found {
+      text-align: center;
+      margin-top: 70px;
+      width: 100%;
+      display: block;
+      font-weight: 600;
+    }
+  }
+}

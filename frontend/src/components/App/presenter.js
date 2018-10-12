@@ -7,6 +7,7 @@ import Auth from "components/Auth";
 import Navigation from "components/Navigation";
 import Feed from "components/Feed";
 import Explore from "components/Explore";
+import Search from "components/Search";
 
 
 const App = props => [
@@ -23,7 +24,7 @@ const PrivateRoutes = props => (
   <Switch>
     <Route exact path="/" component={Feed} />
     <Route exact path="/explore" component={Explore} />
-    <Route exact path="/search/:searchTerm" render={() => "search"} />
+    <Route exact path="/search/:searchTerm" component={Search} />
   </Switch>
 )
 
