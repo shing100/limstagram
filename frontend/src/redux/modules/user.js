@@ -9,6 +9,7 @@ const LOGOUT = "LOGOUT";
 const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
+const SET_NOTIFICATION_LIST = "SET_NOTIFICATION_LIST";
 
 // action creators
 
@@ -57,6 +58,13 @@ const setUnfollowUser = (userId) => {
     return {
         type: UNFOLLOW_USER,
         userId
+    }
+}
+
+const setNotificationList = (notificationList) => {
+    return {
+        type: SET_NOTIFICATION_LIST,
+        notificationList
     }
 }
 
@@ -216,6 +224,25 @@ const getExplore = () => {
     }
 }
 
+const getNotification = () => {
+    return (dispatch, getState) => {
+        const { user: { token } } = getState();
+        fetch(`notifications/`, {
+            method: "GET",
+            headers: {
+                Authorization: `JWT ${token}`
+            }
+        })
+        .then(response => {
+            if(response.status === 401) {
+                dispatch(logout())
+            }
+            return response.json()
+        })
+        .then(json => dispatch(setNotificationList(json)))
+    }
+}
+
 const searchByTerm = (searchTerm) => {
     return async(dispatch, getState) => {
         const { user: { token } } = getState();
@@ -287,6 +314,8 @@ const reducer = (state = initialState, action) => {
             return applyFollowUser(state, action);
         case UNFOLLOW_USER:
             return applyUnfollowUser(state, action);
+        case SET_NOTIFICATION_LIST:
+            return applyNorification(state, action);
         default:
             return state;
     }
@@ -324,6 +353,14 @@ const applySetImageList = (state, action) => {
     return {
         ...state,
         imageList
+    }
+}
+
+const applyNorification = (state, action) => {
+    const { notificationList } = action;
+    return {
+        ...state,
+        notificationList
     }
 }
 
@@ -372,7 +409,8 @@ const actionCreators = {
     followUser,
     unfollowUser,
     getExplore,
-    searchByTerm
+    searchByTerm,
+    getNotification
 }
 
 export { actionCreators };
