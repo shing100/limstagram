@@ -2,25 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
-import UserDisplay from "components/UserDisplay";
 
 const Notification = (props, context) => (
-    <div className={styles.contentsWrap}>
-            <div className={styles.popWrap}>
+    <div className={styles.container}>
+            <div className={styles.wrap}>
                 {props.loading ?
-                    (<RenderLoading loading={props.loading} />) :
+                    (<Loading />) :
                     (<RenderNotification {...props} />)}
             </div>
         </div>
 );
 
-const RenderLoading = (props) => {
-    <Loading loading={props.loading}/>
-}
-
 const RenderNotification = props => (
     <div className={styles.notification}>
-        {props.notifiList.map(notifiList => <UserDisplay big={false} horizontal={true} user={notifiList.creator} notifiList={notifiList} key={notifiList.id} />)}
+        {props.notificationList.map(notification =>  console.log(notification))}
     </div>
 )
 
@@ -29,7 +24,8 @@ Notification.contextTypes = {
 }
 
 Notification.propTypes = {
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    notificationList: PropTypes.array
 }
 
 export default Notification;

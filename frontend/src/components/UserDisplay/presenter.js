@@ -6,7 +6,7 @@ const UserDisplay = (props, context) => (
   <div className={props.horizontal ? styles.horizontal : styles.vertical}>
     <div className={styles.column}>
       <img
-        src={props.profile_image || require("images/noPhoto.png")}
+        src={props.user.profile_image || require("images/noPhoto.png")}
         alt={props.user.username}
         className={props.big ? styles.bigAvatar : styles.avatar}
       />

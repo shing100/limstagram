@@ -33,8 +33,9 @@ const Navigation = (props, context) => (
                     <Ionicon icon="ios-compass-outline" fontSize="28px" color="black" />
                 </Link>
                 </div>
-                <div className={styles.navIcon}>
-                <Ionicon icon="ios-heart-outline" fontSize="28px" color="black" />
+                <div className={styles.navIcon} onClick={props.seeingNotification ? props.closeNotification : props.openNotification}>
+                    {props.seeingNotification ? (<Ionicon icon="ios-heart" fontSize="28px" color="red" />) :
+                        (<Ionicon icon="ios-heart-outline" fontSize="28px" color="black" />)}
                 </div>
                 <div className={styles.navIcon}>
                 <Link to="/profile">
@@ -54,7 +55,11 @@ Navigation.contextTypes = {
 Navigation.propTypes = {
     onInputChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired
+    openNotification: PropTypes.func.isRequired,
+    closeNotification: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    notificationList: PropTypes.array,
+    seeingNotification: PropTypes.bool.isRequired
 }
 
 export default Navigation;
