@@ -15,7 +15,9 @@ const Notification = (props, context) => (
 
 const RenderNotification = props => (
     <div className={styles.notification}>
-        {props.notificationList.map(notification =>  console.log(notification))}
+        {props.notificationList.map(notification =>  (
+            <div className={styles.notification-item}>{notification}</div>
+        ))}
     </div>
 )
 
