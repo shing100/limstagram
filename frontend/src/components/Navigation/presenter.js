@@ -6,6 +6,7 @@ import styles from "./styles.scss";
 import Notification from "components/Notification";
 
 const Navigation = (props, context) => (
+    <div>
     <div className={styles.navigation}>
         <div className={styles.inner}>
             <div className={styles.column}>
@@ -45,6 +46,7 @@ const Navigation = (props, context) => (
                 </div>
             </div>
         </div>
+    </div>
         {props.seeingNotification ? (<Notification {...props} />) : null}
     </div>
 );

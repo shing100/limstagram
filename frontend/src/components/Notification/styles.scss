@@ -1,0 +1,45 @@
+.container {
+  position: absolute;
+  left: 1130px;
+  top: 65px;
+  width: 300px;
+  height: 300px;
+  @include boxBorder(yes);
+  border-radius: 12px;
+  overflow: scroll;
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    margin: 7px;
+    display: grid;
+    grid-gap: 5px;
+    .notificationBox {
+      display: flex;
+      font-size: $normal-font-size;
+      border-bottom: 1px solid $light-grey;
+      &:last-child {
+        border-bottom: none;
+      }
+      .comments {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        .comment {
+          margin-left: 5px;
+        }
+        .username {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+        .date {
+          margin-left: 5px;
+        }
+      }
+    }
+    img {
+      height: 35px;
+      width: 40px
+    }
+  }
+}
