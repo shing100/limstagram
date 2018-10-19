@@ -2,31 +2,31 @@ import React from "react";
 import PropsTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
-import FeedPhoto from "components/FeedPhoto";
+import PhotoDisplay from "components/PhotoDisplay";
 
 const Feed = props => {
     if(props.loading) {
-        return <LoadingFeed/>
-    }else if(props.feed) {
-        return <RenderFeed {...props}/>
+        return <LoadingProfile/>
+    }else if(props.photoList) {
+        return <RenderProfile {...props}/>
     }
 };
 
-const LoadingFeed = props => (
-    <div className={styles.feed}>
+const LoadingProfile = props => (
+    <div className={styles.loading}>
         <Loading/>
     </div>
 );
 
-const RenderFeed = props => (
-    <div className={styles.feed}>
-        {props.feed.map(photo => <FeedPhoto {...photo} key={photo.id}/>)}
+const RenderProfile = props => (
+    <div className={styles.photoList}>
+        {props.photoList.map(photo => <PhotoDisplay {...photo} key={photo.id}/>)}
     </div>
 )
 
 Feed.propsTypes = {
     loading: PropsTypes.bool.isRequired,
-    feed: PropsTypes.array
+    photoList: PropsTypes.array
 }
 
 export default Feed;
