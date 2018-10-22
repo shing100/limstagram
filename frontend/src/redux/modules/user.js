@@ -10,6 +10,7 @@ const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
 const SET_NOTIFICATION_LIST = "SET_NOTIFICATION_LIST";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 // action creators
 
@@ -65,6 +66,13 @@ const setNotificationList = (notificationList) => {
     return {
         type: SET_NOTIFICATION_LIST,
         notificationList
+    }
+}
+
+const setUserProfile = (username) => {
+    return {
+        type: SET_USER_PROFILE,
+        username
     }
 }
 
@@ -288,6 +296,25 @@ const searchImages = (token, searchTerm) => {
             .then(json =>  json)
 }
 
+const getUserProfile = (token, username) => {
+    return (dispatch, getState) => {
+        const { user: { token } } = getState();
+        fetch(`/users/${username}/`, {
+            method: "GET",
+            headers: {
+                Authorization: `JWT ${token}`,
+            }
+        })
+        .then(response => {
+            if(response.status === 401) {
+                return 401;
+            }
+            return response.json()
+        })
+        .then(json => json)
+    }
+}
+
 // intiial state
 
 const initialState = {
@@ -410,7 +437,8 @@ const actionCreators = {
     unfollowUser,
     getExplore,
     searchByTerm,
-    getNotification
+    getNotification,
+    getUserProfile
 }
 
 export { actionCreators };

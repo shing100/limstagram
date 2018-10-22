@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { actionCreators as photoActions } from "redux/modules/photos";
+import { actionCreators as userActions } from "redux/modules/users";
 import Container from "./container";
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,9 +10,10 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+    const username = localStorage.getItem('username')
     return {
-        getFeed: () => {
-            dispatch(photoActions.getFeed())
+        getUserProfile: () => {
+            dispatch(userActions.getUserProfile(username))
         }
     }
 }
