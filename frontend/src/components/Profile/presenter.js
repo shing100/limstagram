@@ -3,6 +3,7 @@ import PropsTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
 import PhotoDisplay from "components/PhotoDisplay";
+import ProfileDisplay from "components/ProfileDisplay";
 
 const Feed = props => {
     if(props.loading) {
@@ -21,6 +22,15 @@ const LoadingProfile = props => (
 const RenderProfile = props => (
     <div className={styles.photoList}>
         {props.photoList.map(photo => <PhotoDisplay {...photo} key={photo.id}/>)}
+    </div>
+)
+
+const RenderPhotoDisplay = props =>
+  props.imageList.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
+
+const RenderProfileDisplay = props => (
+    <div className={styles.ProfileDisplay}>
+        <ProfileDisplay user={user} />
     </div>
 )
 
