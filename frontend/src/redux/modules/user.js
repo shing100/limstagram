@@ -11,6 +11,7 @@ const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
 const SET_NOTIFICATION_LIST = "SET_NOTIFICATION_LIST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_USER_IMAGE = "SET_USER_IMAGE";
 
 // action creators
 
@@ -73,6 +74,13 @@ const setUserProfile = (userProfile) => {
     return {
         type: SET_USER_PROFILE,
         userProfile
+    }
+}
+
+const setUserImage = (imageList) => {
+    return {
+        type: SET_USER_IMAGE,
+        imageList
     }
 }
 
@@ -315,6 +323,25 @@ const getUserProfile = (username) => {
     }
 }
 
+const getUserImage = () => {
+    return (dispatch, getState) => {
+        const { user: { token} } = getState();
+        fetch(`/images/ProfileImages/`, {
+            method: "GET",
+            headers: {
+                Authorization: `JWT ${token}`,
+            }
+        })
+        .then(response => {
+            if(response.status === 401) {
+                dispatch(logout())
+            }
+            return response.json()
+        })
+        .then(json => dispatch(setUserImage(json)))
+    }
+}
+
 // intiial state
 
 const initialState = {
@@ -345,6 +372,8 @@ const reducer = (state = initialState, action) => {
             return applyNorification(state, action);
         case SET_USER_PROFILE:
             return applyUserProfile(state, action);
+        case SET_USER_IMAGE:
+            return applyUserImage(state, action);
         default:
             return state;
     }
@@ -435,6 +464,14 @@ const applyUserProfile = (state, action) => {
     }
 }
 
+const applyUserImage = (state, action) => {
+    const { imageList } = action;
+    return {
+        ...state,
+        imageList
+    }
+}
+
 // exports
 
 const actionCreators = {
@@ -448,7 +485,8 @@ const actionCreators = {
     getExplore,
     searchByTerm,
     getNotification,
-    getUserProfile
+    getUserProfile,
+    getUserImage
 }
 
 export { actionCreators };

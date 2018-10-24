@@ -5,11 +5,15 @@ import Loading from "components/Loading";
 import PhotoDisplay from "components/PhotoDisplay";
 import ProfileDisplay from "components/ProfileDisplay";
 
-const Feed = props => {
+const Profile = props => {
     if(props.loading) {
         return <LoadingProfile/>
-    }else if(props.photoList) {
-        return <RenderProfile {...props}/>
+    }else{
+        return (
+            <div>
+                <RenderProfile {...props}/>
+            </div>
+        )
     }
 };
 
@@ -21,16 +25,17 @@ const LoadingProfile = props => (
 
 const RenderProfile = props => (
     <div className={styles.photoList}>
-        {props.photoList.map(photo => <PhotoDisplay {...profile} key={photo.id}/>)}
+
     </div>
 )
 
 const RenderPhotoDisplay = props =>
-  props.imageList.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
+  props.photoList.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
 
-Feed.propsTypes = {
+Profile.propsTypes = {
     loading: PropsTypes.bool.isRequired,
-    photoList: PropsTypes.array
+    photoList: PropsTypes.array,
+    profile: PropsTypes.array
 }
 
-export default Feed;
+export default Profile;
