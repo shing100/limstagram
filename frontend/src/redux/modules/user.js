@@ -70,17 +70,17 @@ const setNotificationList = (notificationList) => {
     }
 }
 
-const setUserProfile = (userProfile) => {
+const setProfile = (profile) => {
     return {
         type: SET_USER_PROFILE,
-        userProfile
+        profile
     }
 }
 
-const setUserImage = (imageList) => {
+const setProifleImageList = (profileImageList) => {
     return {
         type: SET_USER_IMAGE,
-        imageList
+        profileImageList
     }
 }
 
@@ -304,7 +304,7 @@ const searchImages = (token, searchTerm) => {
             .then(json =>  json)
 }
 
-const getUserProfile = (username) => {
+const getProfile = (username) => {
     return (dispatch, getState) => {
         const { user: { token } } = getState();
         fetch(`/users/${username}/`, {
@@ -319,14 +319,14 @@ const getUserProfile = (username) => {
             }
             return response.json()
         })
-        .then(json => dispatch(setUserProfile(json)))
+        .then(json => dispatch(setProfile(json)))
     }
 }
 
-const getUserImage = () => {
+const getProfileImageList = () => {
     return (dispatch, getState) => {
-        const { user: { token} } = getState();
-        fetch(`/images/ProfileImages/`, {
+        const { user: { token } } = getState();
+        fetch(`/images/profileImages/`, {
             method: "GET",
             headers: {
                 Authorization: `JWT ${token}`,
@@ -338,7 +338,7 @@ const getUserImage = () => {
             }
             return response.json()
         })
-        .then(json => dispatch(setUserImage(json)))
+        .then(json => dispatch(setProifleImageList(json)))
     }
 }
 
@@ -457,18 +457,18 @@ const applyUnfollowUser = (state, action) => {
 }
 
 const applyUserProfile = (state, action) => {
-    const { userProfile } = action;
+    const { profile } = action;
     return {
         ...state,
-        userProfile
+        profile
     }
 }
 
 const applyUserImage = (state, action) => {
-    const { imageList } = action;
+    const { profileImageList } = action;
     return {
         ...state,
-        imageList
+        profileImageList
     }
 }
 
@@ -485,8 +485,8 @@ const actionCreators = {
     getExplore,
     searchByTerm,
     getNotification,
-    getUserProfile,
-    getUserImage
+    getProfile,
+    getProfileImageList
 }
 
 export { actionCreators };

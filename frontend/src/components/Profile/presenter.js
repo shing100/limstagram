@@ -2,39 +2,30 @@ import React from "react";
 import PropsTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
-import PhotoDisplay from "components/PhotoDisplay";
-import ProfileDisplay from "components/ProfileDisplay";
+import FeedPhoto from "components/FeedPhoto";
 
 const Profile = props => {
     if(props.loading) {
         return <LoadingProfile/>
-    }else{
-        return (
-            <div>
-                <RenderProfile {...props}/>
-            </div>
-        )
+    }else if(props.profile) {
+        return <RenderProfile {...props}/>
     }
 };
 
 const LoadingProfile = props => (
-    <div className={styles.loading}>
+    <div className={styles.profile}>
         <Loading/>
     </div>
 );
 
 const RenderProfile = props => (
-    <div className={styles.photoList}>
-
+    <div className={styles.profile}>
+        {props.profile.username}
     </div>
 )
 
-const RenderPhotoDisplay = props =>
-  props.photoList.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
-
 Profile.propsTypes = {
     loading: PropsTypes.bool.isRequired,
-    photoList: PropsTypes.array,
     profile: PropsTypes.array
 }
 

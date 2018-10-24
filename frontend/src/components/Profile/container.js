@@ -8,30 +8,33 @@ class Container extends Component {
     };
 
     static porpTypes = {
-        getUserProfile: PropTypes.func.isRequired,
-        getUserImage: PropTypes.func.isRequired,
-        userProfile: PropTypes.array,
-        imageList: PropTypes.array
+        getProfile: PropTypes.func.isRequired,
+        profile: PropTypes.array
     }
 
     // Profile 를 받음
     componentWillReceiveProps = nextProps => {
-        if (nextProps.imageList) {
+        if(nextProps.profile) {
             this.setState({
                 loading: false,
-                imageList: nextProps.imageList
+                profile: nextProps.profile
             })
         }
     }
 
     componentDidMount() {
-        this.setState({
-            loading: false
-        })
+        const { getProfile } = this.props;
+        if(!this.props.profile) {
+            getProfile();
+        } else {
+            this.setState({
+                loading: false,
+            })
+        }
     }
     render() {
-        const { userProfile } = this.props;
-        return <Profile {...this.state} profile={userProfile}/>
+        const { profile } = this.props;
+        return <Profile {...this.state} profile={profile}/>
     }
 }
 

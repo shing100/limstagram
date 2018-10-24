@@ -51,6 +51,28 @@ class Images(APIView):
 ## def get_key(image):
 ##    return image.created_at
 
+
+class ProfileImages(APIView):
+
+    def get(self, request, format=None):
+
+        user = request.user
+
+        image_list = []
+
+        my_images = user.images.all()
+
+        for image in my_images:
+            image_list.append(image)
+
+        ## sorted_list = sorted(image_list, key=get_key, reverse=True)
+        sorted_list = sorted(image_list, key=lambda image: image.created_at, reverse=True)
+
+        serializer = serializers.ImageSerializer(sorted_list, many=True, context={'request': request})
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 class LikeImage(APIView):
 
     def get(self, request, image_id, format=None):

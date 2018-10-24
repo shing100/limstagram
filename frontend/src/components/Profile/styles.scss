@@ -1,0 +1,9 @@
+.feed {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $max-page-width;
+  margin: 100px auto;
+  align-items: center;
+}
