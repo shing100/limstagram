@@ -3,10 +3,7 @@ import { actionCreators as userActions } from "redux/modules/users";
 import Container from "./container";
 
 const mapStateToProps = (state, ownProps) => {
-    const { photos : { feed } } = state;
-    return {
-        feed
-    }
+    console.log(...state)
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

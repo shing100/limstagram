@@ -21,18 +21,12 @@ const LoadingProfile = props => (
 
 const RenderProfile = props => (
     <div className={styles.photoList}>
-        {props.photoList.map(photo => <PhotoDisplay {...photo} key={photo.id}/>)}
+        {props.photoList.map(photo => <PhotoDisplay {...profile} key={photo.id}/>)}
     </div>
 )
 
 const RenderPhotoDisplay = props =>
   props.imageList.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
-
-const RenderProfileDisplay = props => (
-    <div className={styles.ProfileDisplay}>
-        <ProfileDisplay user={user} />
-    </div>
-)
 
 Feed.propsTypes = {
     loading: PropsTypes.bool.isRequired,

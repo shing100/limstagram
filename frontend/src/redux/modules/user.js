@@ -69,10 +69,10 @@ const setNotificationList = (notificationList) => {
     }
 }
 
-const setUserProfile = (username) => {
+const setUserProfile = (userProfile) => {
     return {
         type: SET_USER_PROFILE,
-        username
+        userProfile
     }
 }
 
@@ -277,7 +277,7 @@ const searchUsers = (token, searchTerm) => {
                 }
                 return response.json()
             })
-            .then(json =>  json)
+            .then(json => json)
 }
 
 const searchImages = (token, searchTerm) => {
@@ -296,7 +296,7 @@ const searchImages = (token, searchTerm) => {
             .then(json =>  json)
 }
 
-const getUserProfile = (token, username) => {
+const getUserProfile = (username) => {
     return (dispatch, getState) => {
         const { user: { token } } = getState();
         fetch(`/users/${username}/`, {
@@ -307,11 +307,11 @@ const getUserProfile = (token, username) => {
         })
         .then(response => {
             if(response.status === 401) {
-                return 401;
+                dispatch(logout())
             }
             return response.json()
         })
-        .then(json => json)
+        .then(json => dispatch(setUserProfile(json)))
     }
 }
 
@@ -343,6 +343,8 @@ const reducer = (state = initialState, action) => {
             return applyUnfollowUser(state, action);
         case SET_NOTIFICATION_LIST:
             return applyNorification(state, action);
+        case SET_USER_PROFILE:
+            return applyUserProfile(state, action);
         default:
             return state;
     }
@@ -423,6 +425,14 @@ const applyUnfollowUser = (state, action) => {
         return user;
     })
     return {...state, userList: updateUserList}
+}
+
+const applyUserProfile = (state, action) => {
+    const { userProfile } = action;
+    return {
+        ...state,
+        userProfile
+    }
 }
 
 // exports

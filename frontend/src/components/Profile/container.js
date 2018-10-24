@@ -22,8 +22,8 @@ class Container extends Component {
         })
     }
     render() {
-        const { profile } = this.props;
-        return <Profile {...this.state} profile={profile}/>
+        const { userProfile } = this.props;
+        return <Profile {...this.state} profile={userProfile}/>
     }
 }
 
