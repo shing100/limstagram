@@ -2,7 +2,6 @@ import React from "react";
 import PropsTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
-import FeedPhoto from "components/FeedPhoto";
 
 const Profile = props => {
     if(props.loading) {
@@ -21,6 +20,12 @@ const LoadingProfile = props => (
 const RenderProfile = props => (
     <div className={styles.profile}>
         {props.profile.username}
+        {props.profile.name}
+        {props.profile.profile_image}
+        {props.profile.followers_count}
+        {props.profile.following_count}
+        {props.profile.website}
+        {props.profile.bio}
     </div>
 )
 
