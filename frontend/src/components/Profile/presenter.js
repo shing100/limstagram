@@ -2,6 +2,7 @@ import React from "react";
 import PropsTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
+import PhotoDisplay from "components/PhotoDisplay";
 
 const Profile = props => {
     if(props.loading) {
@@ -26,6 +27,7 @@ const RenderProfile = props => (
         {props.profile.following_count}
         {props.profile.website}
         {props.profile.bio}
+        {props.profile.images.map(image => <PhotoDisplay photo={image} key={image.id}/>)}
     </div>
 )
 
