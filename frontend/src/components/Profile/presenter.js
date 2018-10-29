@@ -20,14 +20,40 @@ const LoadingProfile = props => (
 
 const RenderProfile = props => (
     <div className={styles.profile}>
-        {props.profile.username}
-        {props.profile.name}
-        {props.profile.profile_image}
-        {props.profile.followers_count}
-        {props.profile.following_count}
-        {props.profile.website}
-        {props.profile.bio}
+        <div className={styles.wrap}>
+            <img
+                src={props.profile.profile_image || require("images/noPhoto.png")}
+                alt={props.profile.username}
+                className={styles.image}
+            />
+            <ul>
+            <li>
+                <div className={styles.userProfile}>
+                    <span className={styles.username}>
+                        {props.profile.username}
+                    </span>
+                    <span className={styles.edit}>
+                        프로필 편집
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div className={styles.intro}>
+                    <span>게시물  <a className={styles.count}>{props.profile.images.length}</a></span>
+                    <span>팔로워  <a className={styles.count}>{props.profile.followers_count}</a></span>
+                    <span>팔로우  <a className={styles.count}>{props.profile.following_count}</a></span>
+                </div>
+            </li>
+            <ul className={styles.contact}>
+                <li className={styles.name}>{props.profile.name}</li>
+                <li className={styles.website}><a href={props.profile.website}>{props.profile.website}</a></li>
+                <li className={styles.bio}>{props.profile.bio}</li>
+            </ul>
+            </ul>
+        </div>
+        <div className={styles.content}>
         {props.profile.images.map(image => <PhotoDisplay photo={image} key={image.id}/>)}
+        </div>
     </div>
 )
 

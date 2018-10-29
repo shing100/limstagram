@@ -4,6 +4,71 @@
   flex-direction: column;
   width: 100%;
   max-width: $max-page-width;
-  margin: 100px auto;
+  margin: 128px auto;
   align-items: center;
+  .wrap {
+    display: flex;
+    margin-bottom: 50px;
+    .image {
+      height: 152px;
+      width: 152px;
+      border-radius: 50%;
+      margin-right: 100px;
+    }
+    .userProfile {
+      display: flex;
+      margin-bottom: 18px;
+      .username {
+        font-size: 32px;
+        font-weight: 100;
+        margin-right: 20px;
+      }
+      .edit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 84px;
+        height: 32px;
+        font-size: $normal-font-size;
+        font-weight: 600;
+        @include boxBorder(yes);
+      }
+    }
+    .intro {
+      font-size: 16px;
+      margin-bottom: 18px;
+      span:first-child {
+        margin-right: 33px;
+      }
+      span:last-child {
+        margin-left: 33px;
+      }
+      .count {
+        font-weight: 500;
+      }
+    }
+    .contact {
+      font-size: $big-font-size;
+      .name {
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .website {
+        margin-bottom: 6px;
+        a {
+          text-decoration: none;
+          color: #5a85a9;
+        }
+      }
+      .bio {
+
+      }
+    }
+  }
+  .content {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
