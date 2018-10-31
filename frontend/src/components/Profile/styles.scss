@@ -1,14 +1,15 @@
 .profile {
-  min-width: 500px;
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: $max-page-width;
-  margin: 128px auto;
+  margin: 133px auto;
   align-items: center;
   .wrap {
     display: flex;
+    width: 100%;
     margin-bottom: 50px;
+    margin-left: 15%;
     .image {
       height: 152px;
       width: 152px;
@@ -63,6 +64,24 @@
       .bio {
 
       }
+    }
+  }
+  .menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    width: 95%;
+    margin-bottom: 50px;
+    border-top: 2px solid $light-grey;
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      font-size: $small-font-size;
+      height: 30px;
+      margin: 0;
+      padding: 0;
     }
   }
   .content {

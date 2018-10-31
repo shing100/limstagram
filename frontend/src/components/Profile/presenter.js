@@ -1,6 +1,7 @@
 import React from "react";
 import PropsTypes from "prop-types";
 import styles from "./styles.scss";
+import Ionicon from "react-ionicons";
 import Loading from "components/Loading";
 import PhotoDisplay from "components/PhotoDisplay";
 
@@ -44,12 +45,15 @@ const RenderProfile = props => (
                     <span>팔로우  <a className={styles.count}>{props.profile.following_count}</a></span>
                 </div>
             </li>
-            <ul className={styles.contact}>
-                <li className={styles.name}>{props.profile.name}</li>
-                <li className={styles.website}><a href={props.profile.website}>{props.profile.website}</a></li>
-                <li className={styles.bio}>{props.profile.bio}</li>
+                <ul className={styles.contact}>
+                    <li className={styles.name}>{props.profile.name}</li>
+                    <li className={styles.website}><a href={props.profile.website}>{props.profile.website}</a></li>
+                    <li className={styles.bio}>{props.profile.bio}</li>
+                </ul>
             </ul>
-            </ul>
+        </div>
+        <div className={styles.menu}>
+            <span className={styles.item}><Ionicon icon="ios-list-box-outline" fontSize="24px" color="black"/>{ }게시물</span>
         </div>
         <div className={styles.content}>
         {props.profile.images.map(image => <PhotoDisplay photo={image} key={image.id}/>)}
