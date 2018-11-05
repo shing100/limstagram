@@ -15,21 +15,22 @@ const Notification = (props, context) => (
 
 const RenderNotification = props => props.notificationList.map(notification =>  (
     <div className={styles.notificationBox}>
-        <img className={styles.image} src={notification.image.file || null} alt={notification.creator.username}/>
+        <img className={styles.profile} src={notification.creator.profile_image} alt={notification.creator.username}/>
         <div className={styles.comments}>
             <div className={styles.comment}>
-                {notification.creator.username}이가
+                {notification.creator.username} is
             </div>
             <div className={styles.date}>
-                {notification.natural_time} 에
+                {notification.natural_time} to
             </div>
             <div className={styles.comment}>
                 {notification.comment || null}
             </div>
             <div className={styles.type}>
-                {notification.notification_type}
+                {notification.notification_type} photo
             </div>
         </div>
+        <img className={styles.image} src={notification.image.file || null} alt={notification.creator.username}/>
     </div>
     )
 )

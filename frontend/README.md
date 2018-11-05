@@ -107,3 +107,7 @@
 
 > 텍스트 리사이즈
 - yarn add react-textarea-autosize
+
+> 페이지 네이션
+- https://docs.djangoproject.com/en/2.1/topics/pagination/
+- https://www.npmjs.com/package/react-infinite-scroller
