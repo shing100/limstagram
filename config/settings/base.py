@@ -307,3 +307,7 @@ SOCIALACCOUNT_PROVIDERS = {
 REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'limstagram.users.serializers.SignUpSerializer'
 }
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'limstagram.users.serializers.UserProfileSerializer'
+}
