@@ -248,7 +248,6 @@ SOCIALACCOUNT_ADAPTER = 'limstagram.users.adapters.SocialAccountAdapter'
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_EMAIL_REQUIRED = False
 SOCIALACCOUNT_QUERY_EMAIL = True
-
 # Your stuff...
 # ------------------------------------------------------------------------------
 # 해시태그 설정 django-taggit
