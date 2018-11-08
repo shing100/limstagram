@@ -30,16 +30,22 @@ class Container extends Component {
         })
     }
 
-    _handleSubmit = event => {
+    _handleSubmit = async event => {
         const { usernameLogin } = this.props;
         const { username, password } = this.state;
         event.preventDefault()
-        usernameLogin(username, password);
+        const loginResult = await usernameLogin(username, password);
+        if(!loginResult) {
+            alert("로그인 실패");
+        }
     }
 
-    _handleFacebookLogin = (response) => {
+    _handleFacebookLogin = async (response) => {
         const { facebookLogin } = this.props;
-        facebookLogin(response.accessToken);
+        const loginResult = await facebookLogin(response.accessToken);
+        if(!loginResult){
+            alert("로그인 실패");
+        }
     }
 }
 

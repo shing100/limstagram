@@ -1,3 +1,4 @@
+
 // imports
 
 // actions
@@ -88,7 +89,7 @@ const setProifleImageList = (profileImageList) => {
 
 const facebookLogin = (access_token) => {
     return (dispatch) => {
-        fetch("/users/login/facebook/", {
+        return fetch("/users/login/facebook/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -103,6 +104,9 @@ const facebookLogin = (access_token) => {
             if(json.token){
                 dispatch(saveToken(json.token));
                 dispatch(saveUsername(json.user.username))
+                return true
+            }else {
+                return false;
             }
         })
         .catch(err => console.log(err))
@@ -111,7 +115,7 @@ const facebookLogin = (access_token) => {
 
 const usernameLogin = (username, password) => {
     return (dispatch) => {
-        fetch("/rest-auth/login/", {
+        return fetch("/rest-auth/login/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -126,6 +130,9 @@ const usernameLogin = (username, password) => {
             if(json.token) {
                 dispatch(saveToken(json.token));
                 dispatch(saveUsername(username));
+                return true;
+            }else {
+                return false;
             }
         })
         .catch(err => console.log(err))
