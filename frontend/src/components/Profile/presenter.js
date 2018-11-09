@@ -4,6 +4,7 @@ import styles from "./styles.scss";
 import Ionicon from "react-ionicons";
 import Loading from "components/Loading";
 import PhotoDisplay from "components/PhotoDisplay";
+import Logout from "components/Logout";
 
 const Profile = props => {
     if(props.loading) {
@@ -36,6 +37,7 @@ const RenderProfile = props => (
                     <span className={styles.edit}>
                         프로필 편집
                     </span>
+                    <span><Logout /></span>
                 </div>
             </li>
             <li>

@@ -327,6 +327,7 @@ const getProfile = (username) => {
             return response.json()
         })
         .then(json => dispatch(setProfile(json)))
+        .catch(err => console.log(err))
     }
 }
 
