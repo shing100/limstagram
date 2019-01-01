@@ -199,6 +199,17 @@ urlpatterns = [
 - 이미지 올리기, 삭제, 수정, 
 - 내 이미지 댓글, 생성 댓글 삭제
 
+
+## 설치
+- pipenv install djangorestframework
+- pipenv install django-taggit
+- python manage.py migrate
+- pipenv install django-rest-auth
+- pip install django-taggit-serializer
+- pip install django-cors-headers
+- pip install djangorestframework-jwt
+
+
 ## 참고자료
 --------------------
 
