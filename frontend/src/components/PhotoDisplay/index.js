@@ -18,11 +18,13 @@ import styles from "./styles.scss";
         </div>
     </div>
 );
- PhotoDisplay.propTypes = {
+
+PhotoDisplay.propTypes = {
   photo: PropTypes.shape({
     file: PropTypes.string.isRequired,
     comment_count: PropTypes.number.isRequired,
     like_count: PropTypes.number.isRequired
   }).isRequired
 };
- export default PhotoDisplay;
+
+export default PhotoDisplay;
