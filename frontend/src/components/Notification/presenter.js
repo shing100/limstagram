@@ -15,7 +15,7 @@ const Notification = (props, context) => (
 
 const RenderNotification = props => props.notificationList.map(notification =>  (
     <div className={styles.notificationBox}>
-        <img className={styles.profile} src={notification.creator.profile_image} alt={notification.creator.username}/>
+        <img className={styles.profile} src={notification.creator.profile_image || require("images/noPhoto.png") } alt={notification.creator.username}/>
         <div className={styles.comments}>
             <div className={styles.comment}>
                 {notification.creator.username} is
