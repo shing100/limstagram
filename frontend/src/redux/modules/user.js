@@ -141,7 +141,7 @@ const usernameLogin = (username, password) => {
 
 const createAccount = (username, password, email, name) => {
     return (dispatch) => {
-        fetch("/rest-auth/registration/", {
+        return fetch("/rest-auth/registration/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -159,6 +159,9 @@ const createAccount = (username, password, email, name) => {
             if(json.token) {
                 dispatch(saveToken(json.token));
                 dispatch(saveUsername(username));
+                return true;
+            }else {
+                return false;
             }
         })
         .catch(err => console.log(err))
