@@ -31,11 +31,15 @@ class Container extends Component {
         })
     }
 
-    _handleSubmit = event => {
+    _handleSubmit = async event => {
         const { username, password, email, name } = this.state;
         const { createAccount } = this.props;
         event.preventDefault();
-        createAccount(username, password, email, name);
+        const createAccountResult = await createAccount(username, password, email, name);
+        if (!createAccountResult) {
+            alert("비밀번호 길이는 8자 이상으로 해주세요");
+        }
+
     }
 
     _handleFacebookLogin = (response) => {

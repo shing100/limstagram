@@ -8,7 +8,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(userActions.facebookLogin(access_token));
         },
         createAccount: (username, password, email, name) => {
-            dispatch(userActions.createAccount(username, password, email, name));
+            return dispatch(userActions.createAccount(username, password, email, name));
         }
     }
 }

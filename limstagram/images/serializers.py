@@ -70,10 +70,12 @@ class ImageSerializer(serializers.ModelSerializer):
             'caption',
             'comments',
             'like_count',
+            'comment_count',
             'creator',
             'natural_time',
             'tags',
-            'is_liked'
+            'is_liked',
+            'is_vertical'
         )
 
     def get_is_liked(self, obj):
