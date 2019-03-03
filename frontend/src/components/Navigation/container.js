@@ -47,6 +47,7 @@ class Container extends Component {
             term: value
         })
     }
+
     _onSubmit = event => {
         const { goToSearch } = this.props;
         const { term } = this.state;

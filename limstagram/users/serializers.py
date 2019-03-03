@@ -14,7 +14,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     following_count = serializers.ReadOnlyField()
     is_self = serializers.SerializerMethodField()
     following = serializers.SerializerMethodField()
-    
+
     class Meta:
         model = models.User
         fields = (
@@ -33,10 +33,10 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     def get_is_self(self, user):
         if 'request' in self.context:
-            request = self context['request']
+            request = self.context['request']
             if user.id == request.user.id:
                 return True
-            else
+            else:
                 return False
         return False
 

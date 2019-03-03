@@ -30,7 +30,6 @@ const RenderNotification = props => props.notificationList.map(notification =>  
                 {notification.notification_type} photo
             </div>
         </div>
-        <img className={styles.image} src={notification.image.file || null} alt={notification.creator.username}/>
     </div>
     )
 )
