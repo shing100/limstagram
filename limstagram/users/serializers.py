@@ -7,7 +7,7 @@ from limstagram.images import serializers as images_serializers
 
 class UserProfileSerializer(serializers.ModelSerializer):
 
-    images = images_serializers.CountImageSerializer(many=True, read_only=True)
+    images = images_serializers.ImageSerializer(many=True, read_only=True)
     # 해달 필드를 ReadOnly로 필드로 지정
     post_count = serializers.ReadOnlyField()
     followers_count = serializers.ReadOnlyField()
